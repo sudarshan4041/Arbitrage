@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Google Authenticator - DipBot</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .qr-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .secret-code {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            word-break: break-all;
+            margin: 20px 0;
+        }
+        .steps {
+            text-align: left;
+            margin: 20px 0;
+        }
+        .steps li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 600px;">
+        <div class="login-box">
+            <h1>Setup Google Authenticator</h1>
+            
+            <div class="steps">
+                <h3>Steps to setup:</h3>
+                <ol>
+                    <li>Install Google Authenticator app on your phone</li>
+                    <li>Open the app and tap "+" to add new account</li>
+                    <li>Choose "Scan QR code"</li>
+                    <li>Scan the QR code below</li>
+                </ol>
+            </div>
+            
+            <div class="qr-container">
+                <img src="<%= qrCode %>" alt="QR Code for Google Authenticator">
+            </div>
+            
+            <div class="info">
+                <p><strong>Can't scan the QR code?</strong></p>
+                <p>Enter this secret manually in Google Authenticator:</p>
+                <div class="secret-code">
+                    <%= secret %>
+                </div>
+                <p><strong>IMPORTANT:</strong> Save this secret in your .env file:</p>
+                <div class="secret-code">
+                    TOTP_SECRET=<%= secret %>
+                </div>
+            </div>
+            
+            <a href="/login" class="btn-primary" style="display: block; text-align: center; margin-top: 20px;">
+                Go to Login
+            </a>
+        </div>
+    </div>
+</body>
+</html>

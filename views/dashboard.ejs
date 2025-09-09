@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funding Profit INR - Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <h1>Funding Profit INR</h1>
+            <div class="header-actions">
+                <button class="btn-add-position" onclick="openAddModal()">+ Add Position</button>
+                <a href="/logout" class="btn-logout">Logout</a>
+            </div>
+        </header>
+
+        <!-- Trading Pairs Grid -->
+        <div class="trading-pairs-grid">
+            <!-- Card 1 -->
+            <div class="trading-card" data-pair="BTC/USDT">
+                <div class="card-row">
+                    <label>Symbol:</label>
+                    <span class="symbol">BTC/USDT</span>
+                </div>
+                <div class="card-row">
+                    <label>SPOT:</label>
+                    <span class="spot-price">45,250.50</span>
+                </div>
+                <div class="card-row">
+                    <label>Futures:</label>
+                    <span class="futures-price">45,280.75</span>
+                </div>
+                <div class="card-row">
+                    <label>Amount (USDT):</label>
+                    <input type="number" class="amount-input" value="1000" />
+                </div>
+                <div class="card-row">
+                    <label>Take Profit:</label>
+                    <input type="number" class="tp-input" value="45,500" />
+                </div>
+                <div class="card-action">
+                    <button class="go-btn" onclick="executePosition('BTC/USDT')">GO</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="trading-card" data-pair="ETH/USDT">
+                <div class="card-row">
+                    <label>Symbol:</label>
+                    <span class="symbol">ETH/USDT</span>
+                </div>
+                <div class="card-row">
+                    <label>SPOT:</label>
+                    <span class="spot-price">2,850.25</span>
+                </div>
+                <div class="card-row">
+                    <label>Futures:</label>
+                    <span class="futures-price">2,852.50</span>
+                </div>
+                <div class="card-row">
+                    <label>Amount (USDT):</label>
+                    <input type="number" class="amount-input" value="500" />
+                </div>
+                <div class="card-row">
+                    <label>Take Profit:</label>
+                    <input type="number" class="tp-input" value="2,900" />
+                </div>
+                <div class="card-action">
+                    <button class="go-btn" onclick="executePosition('ETH/USDT')">GO</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="trading-card" data-pair="SOL/USDT">
+                <div class="card-row">
+                    <label>Symbol:</label>
+                    <span class="symbol">SOL/USDT</span>
+                </div>
+                <div class="card-row">
+                    <label>SPOT:</label>
+                    <span class="spot-price">98.45</span>
+                </div>
+                <div class="card-row">
+                    <label>Futures:</label>
+                    <span class="futures-price">98.62</span>
+                </div>
+                <div class="card-row">
+                    <label>Amount (USDT):</label>
+                    <input type="number" class="amount-input" value="300" />
+                </div>
+                <div class="card-row">
+                    <label>Take Profit:</label>
+                    <input type="number" class="tp-input" value="100" />
+                </div>
+                <div class="card-action">
+                    <button class="go-btn" onclick="executePosition('SOL/USDT')">GO</button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="trading-card" data-pair="XRP/USDT">
+                <div class="card-row">
+                    <label>Symbol:</label>
+                    <span class="symbol">XRP/USDT</span>
+                </div>
+                <div class="card-row">
+                    <label>SPOT:</label>
+                    <span class="spot-price">0.6245</span>
+                </div>
+                <div class="card-row">
+                    <label>Futures:</label>
+                    <span class="futures-price">0.6248</span>
+                </div>
+                <div class="card-row">
+                    <label>Amount (USDT):</label>
+                    <input type="number" class="amount-input" value="200" />
+                </div>
+                <div class="card-row">
+                    <label>Take Profit:</label>
+                    <input type="number" class="tp-input" value="0.65" />
+                </div>
+                <div class="card-action">
+                    <button class="go-btn" onclick="executePosition('XRP/USDT')">GO</button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="trading-card" data-pair="MATIC/USDT">
+                <div class="card-row">
+                    <label>Symbol:</label>
+                    <span class="symbol">MATIC/USDT</span>
+                </div>
+                <div class="card-row">
+                    <label>SPOT:</label>
+                    <span class="spot-price">0.8956</span>
+                </div>
+                <div class="card-row">
+                    <label>Futures:</label>
+                    <span class="futures-price">0.8962</span>
+                </div>
+                <div class="card-row">
+                    <label>Amount (USDT):</label>
+                    <input type="number" class="amount-input" value="250" />
+                </div>
+                <div class="card-row">
+                    <label>Take Profit:</label>
+                    <input type="number" class="tp-input" value="0.92" />
+                </div>
+                <div class="card-action">
+                    <button class="go-btn" onclick="executePosition('MATIC/USDT')">GO</button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="trading-card" data-pair="DOGE/USDT">
+                <div class="card-row">
+                    <label>Symbol:</label>
+                    <span class="symbol">DOGE/USDT</span>
+                </div>
+                <div class="card-row">
+                    <label>SPOT:</label>
+                    <span class="spot-price">0.0924</span>
+                </div>
+                <div class="card-row">
+                    <label>Futures:</label>
+                    <span class="futures-price">0.0925</span>
+                </div>
+                <div class="card-row">
+                    <label>Amount (USDT):</label>
+                    <input type="number" class="amount-input" value="150" />
+                </div>
+                <div class="card-row">
+                    <label>Take Profit:</label>
+                    <input type="number" class="tp-input" value="0.095" />
+                </div>
+                <div class="card-action">
+                    <button class="go-btn" onclick="executePosition('DOGE/USDT')">GO</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Open Positions Section -->
+        <section class="open-positions">
+            <h2 class="section-title">ALL Open Positions</h2>
+            <div class="manual-close-divider">
+                <span>Manual Close</span>
+            </div>
+            
+            <div class="positions-list" id="positionsList">
+                <!-- Positions will be dynamically added here -->
+                <div class="no-positions">No open positions</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add Position Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddModal()">&times;</span>
+            <h2>Add New Position</h2>
+            <form id="addPositionForm">
+                <div class="form-group">
+                    <label>Symbol:</label>
+                    <input type="text" id="newSymbol" placeholder="e.g., BNB/USDT" required>
+                </div>
+                <div class="form-group">
+                    <label>SPOT Price:</label>
+                    <input type="number" id="newSpot" step="0.0001" required>
+                </div>
+                <div class="form-group">
+                    <label>Futures Price:</label>
+                    <input type="number" id="newFutures" step="0.0001" required>
+                </div>
+                <div class="form-group">
+                    <label>Amount (USDT):</label>
+                    <input type="number" id="newAmount" required>
+                </div>
+                <div class="form-group">
+                    <label>Take Profit:</label>
+                    <input type="number" id="newTP" step="0.0001" required>
+                </div>
+                <button type="submit" class="btn-submit">Add Position</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

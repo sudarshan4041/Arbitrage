@@ -138,7 +138,7 @@ app.get('/setup-2fa', async (req, res) => {
 });
 
 app.get('/success', requireFullAuth, (req, res) => {
-    res.render('success', { user: { displayName: 'Admin', emails: [{ value: 'admin@dipbot.com' }] } });
+    res.render('dashboard', { user: { displayName: 'Admin', emails: [{ value: 'admin@dipbot.com' }] } });
 });
 
 app.get('/logout', (req, res) => {

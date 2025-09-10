@@ -16,6 +16,10 @@
                 <div class="error-message"><%= error %></div>
             <% } %>
             
+            <% if (typeof message !== 'undefined' && message) { %>
+                <div class="success-message" style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 20px; text-align: center;"><%= message %></div>
+            <% } %>
+            
             <form method="POST" action="/login">
                 <div class="form-group">
                     <label for="username">Username:</label>
@@ -31,7 +35,11 @@
             </form>
             
             <div class="info">
-                <p>After basic authentication, you'll be redirected to Google OAuth.</p>
+                <p>After basic authentication, you'll be redirected to Google Authenticator.</p>
+            </div>
+            
+            <div class="signup-link">
+                <p>Don't have an account? <a href="/signup">Sign up</a></p>
             </div>
         </div>
     </div>

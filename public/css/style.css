@@ -135,3 +135,25 @@ input[type="password"]:focus {
 .user-info p:last-child {
     margin-bottom: 0;
 }
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.signup-link p {
+    color: #718096;
+    margin: 0;
+}
+
+.signup-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
